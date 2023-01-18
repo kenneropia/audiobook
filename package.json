@@ -11,10 +11,10 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "dev": "conc \" npx swc ./src -d dist --watch\" \" cross-env NODE_ENV=development nodemon ./dist/server.js \" ",
-    "build": "npx swc ./src -d dist",
+    "dev": "node api.js && conc \" npx swc ./src -d dist --watch\" \" cross-env NODE_ENV=development nodemon ./dist/server.js \"",
+    "build": "node api.js && npx swc ./src -d dist",
     "ts": "cross-env NODE_ENV=development node -r @swc-node/register ./src/server.ts",
-    "start": "cross-env NODE_ENV=production node ./dist/server.js"
+    "start": "node api.js && cross-env NODE_ENV=production node ./dist/server.js"
   },
   "engines": {
     "npm": ">=8.0.0 <9.0.0",
